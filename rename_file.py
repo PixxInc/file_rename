@@ -1,5 +1,4 @@
 import os
-import sys
 import re
 
 def sanitize_name(name):
@@ -45,12 +44,13 @@ def rename_file(file_path, new_name):
         print(f"Unexpected Error: {e}")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python rename_file.py \"<file_path>\" \"<new_name>\"")
-        sys.exit(1)
+    # Retrieve variables using os.getenv()
+    file_path = os.getenv("FILE_PATH")
+    new_name = os.getenv("NEW_NAME")
 
-    # Use arguments safely with quotes if needed
-    file_path = sys.argv[1].strip("\"")
-    new_name = sys.argv[2].strip("\"")
+    # Check if the environment variables were retrieved
+    if not file_path or not new_name:
+        print("Error: Missing environment variables 'FILE_PATH' or 'NEW_NAME'.")
+        exit(1)
 
     rename_file(file_path, new_name)
