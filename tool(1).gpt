@@ -1,0 +1,6 @@
+
+Description: Renames a file to a new specified name while keeping its extension.
+Param: FILE_PATH: The full path to the file to be renamed.
+Param: NEW_NAME: The new name for the file, without the extension.
+
+#!/usr/bin/env python3 ${GPTSCRIPT_TOOL_DIR}/rename_file.py
