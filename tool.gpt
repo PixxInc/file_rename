@@ -1,5 +1,5 @@
-Description: Renames a file to a new specified name while keeping its extension. The new name will be sanitized to remove any special characters that could cause issues, ensuring compatibility across different operating systems.
-Param: FILE_PATH: The full path to the file to be renamed. Must be enclosed in double quotes if the path contains spaces or special characters.
-Param: NEW_NAME: The new name for the file, without the extension. Special characters (like < > : " / \ | ? * ') will be replaced with underscores for safety.
-
+Description: Renames a file to a new specified name while keeping its extension. The new name will be sanitized to remove any special characters that could cause issues, ensuring compatibility across different operating systems. Note:- **DOUBLE QUOTES**: Remember to use double quotes for paths with spaces or special characters.- **SPECIAL CHARACTERS**: The tool will sanitize names by replacing unsupported characters with underscores.
+Param: FILE_PATH: The full path to the file to be renamed. **Must be enclosed in double quotes** if the path contains spaces or special characters. __MUST BE ENCLOSED IN DOUBLE QUOTES.__ USE DOUBLE QUOTES IF THERE ARE SPACES OR SPECIAL CHARACTERS.
+Param: NEW_NAME: The new name for the file, without the extension. **Special characters** (like < > : " / \ | ? * ') will be replaced with underscores for safety. __SPECIAL CHARACTERS WILL BE REPLACED WITH UNDERSCORES.__ THIS INCLUDES CHARACTERS LIKE < > : " / \ | ? * '.
+Param: FILE_PATH AND NEW_NAME: Ensure that the `FILE_PATH` is enclosed in double quotes and `NEW_NAME` does not contain any disallowed special characters. __CHECK FOR SPACES, QUOTES, OR SPECIAL SYMBOLS IN YOUR FILE PATHS AND NAMES.__
 #!/usr/bin/env python3 ${GPTSCRIPT_TOOL_DIR}/rename_file.py
