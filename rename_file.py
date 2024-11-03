@@ -1,8 +1,16 @@
 import os
 import sys
+import re
+
+def sanitize_name(name):
+    """Replace special characters in the name with safe characters."""
+    return re.sub(r'[<>:"/\\|?*\']', '_', name)
 
 def rename_file(file_path, new_name):
     try:
+        # Sanitize the new name to avoid special characters
+        new_name = sanitize_name(new_name)
+
         # Extract the directory from the file path
         directory = os.path.dirname(file_path)
 
@@ -21,7 +29,6 @@ def rename_file(file_path, new_name):
         print(f"Error: {e}")
 
 if __name__ == "__main__":
-    # Check for correct number of arguments
     if len(sys.argv) != 3:
         print("Usage: python rename_file.py \"<file_path>\" \"<new_name>\"")
         sys.exit(1)
